@@ -5,22 +5,58 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title: 'Article one | Praveen',
-    heading: 'Article One',
-    date: 'Sep 30, 2016',
-    content:`
-                <p>
-                 This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
+var articles = { 
+    'article-one' : {
+        title: 'Article one | Praveen',
+        heading: 'Article One',
+        date: 'Sep 30, 2016',
+        content:`
+                    <p>
+                     This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
+                    </p>
+                    
+                    <p>
+                        This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
+                    </p>
+                    
+                    <p>
+                        This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
+                    </p>`
+    },
+    'article-two': {
+          title: 'Article Two | Praveen',
+        heading: 'Article Two',
+        date: 'Sep 30, 2016',
+        content:`
+                     <p>This is my Second article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
                 </p>
                 
                 <p>
-                    This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
+                    This is my Second article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
                 </p>
                 
                 <p>
-                    This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
-                </p>`
+                    This is my Second article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
+                </p>
+                `
+    },
+    'article-three': {
+                  title: 'Article Three | Praveen',
+        heading: 'Article Three',
+        date: 'Sep 30, 2016',
+        content:`
+                     <p>This is my three article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
+                </p>
+                
+                <p>
+                    This is my third third.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
+                </p>
+                
+                <p>
+                    This is my third article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.This is my first article.
+                </p>
+                `
+    }
 };
 function createTemplate(data){
     var title = data.title;
@@ -62,8 +98,10 @@ function createTemplate(data){
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one', function(req,res){
-  res.send(createTemplate(articleOne));
+app.get('/:articleName', function(req,res){
+    //articleName == article-one
+    var articleName = req.params.articleName;
+  res.send(createTemplate(articles[articleName]));
 });
 app.get('/article-two', function(req,res){
   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
