@@ -8,8 +8,8 @@ element.innerHTML = 'This is Great';
 //move the dino
 
 var img = document.getElementById('madi');
-function moveright(){
  var marginLeft = 0;
+function moveright(){
  marginLeft = marginLeft + 5;
  img.style.marginLeft = marginLeft + 'px';
 }
