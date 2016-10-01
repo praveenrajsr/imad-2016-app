@@ -8,6 +8,11 @@ element.innerHTML = 'This is Great';
 //move the dino
 
 var img = document.getElementById('madi');
+function moveright(){
+ var marginLeft = 0;
+ marginLeft = marginLeft + 5;
+ img.style.marginLeft = marginLeft + 'px';
+}
  img.onclick = function() {
-  img.style.marginLeft = '200px';  
+  var interval = setInterval(moveright, 50);
 };
