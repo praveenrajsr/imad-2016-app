@@ -4,3 +4,9 @@ console.log('Loaded!');
 
 var element = document.getElementById('main-text');
 element.innerHTML = 'This is Great';
+
+//move the dino
+var img = document.getElementById('madi');
+img.onClick = function() {
+  img.stylemarginLeft = '100px';  
+};
