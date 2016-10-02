@@ -50,7 +50,7 @@ submit.onclick = function(){
     //capture a list of names and render it as a file.
     var names = ['name1','name2','name3'];
     var list = '';
-    for(var i=0; i<=name.length; i++){
+    for(var i=0; i<=names.length; i++){
         list += '<li>'+ names[i] + '</li>';
     }
     var ul = document.getElementById('namelist');
