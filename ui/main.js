@@ -54,7 +54,7 @@ submit.onclick = function(){
           if(request.status === 200){
              //capture a list of names and render it as a file.
              var names =request.responseText;
-             name = json.parse(name);
+             name = JSON.parse(name);
              var list = '';
               for(var i=0; i<names.length; i++){
                    list += '<li>'+ names[i] + '</li>';
