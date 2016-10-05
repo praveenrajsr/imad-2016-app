@@ -65,7 +65,7 @@ submit.onclick = function(){
       }  
     };
     //make the request
-    request.open('GET' , 'http://praveenrajsr.imad.hasura-app.io/submit-name?namr= + name' , true);
+    request.open('GET' , 'http://praveenrajsr.imad.hasura-app.io/submit-name?name= + name' , true);
     request.send(null);
     //make a request to the server and send the name.
 };
